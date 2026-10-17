@@ -38,10 +38,23 @@
     td, th { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
     th { color: var(--muted); font-weight: 600; }
     footer { margin-top: 64px; font-size: .85rem; }
+    .topnav { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: flex-end; margin-bottom: 32px; font-size: .95rem; }
+    .topnav a { color: var(--muted); text-decoration: none; }
+    .topnav a:hover { color: var(--text); }
+    a.btn { display: inline-block; background: var(--accent); color: #1a1200; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 14px; }
+    a.btn:hover { filter: brightness(1.1); }
+    .project-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
 <main>
+  <nav class="topnav" aria-label="Main">
+    <a href="#projects">Projects</a>
+    <a href="/les/">LES site</a>
+    <a href="/pet-tracker/site/">Wisp site</a>
+    <a href="#exp">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <header>
     <h1>Ha Ngoc Kien · Ike Ha</h1>
     <p><strong>Frontend / full-stack JavaScript engineer</strong> · Da Nang, Vietnam</p>
@@ -67,7 +80,10 @@
     <h2 id="projects">Featured projects</h2>
 
     <article class="card project">
-      <h3><a href="/les/">LES — Living Engineering System</a></h3>
+      <div class="project-head">
+        <h3><a href="/les/">LES — Living Engineering System</a></h3>
+        <a class="btn" href="/les/">Visit site →</a>
+      </div>
       <p class="muted">A methodology plus CLI that gives every AI coding tool in a repository the same rules.</p>
       <ul>
         <li>Risk levels <code>R0</code>–<code>R3</code>; push, history rewrite and destructive cleanup need human approval.</li>
@@ -79,11 +95,14 @@
 cd my-project &amp;&amp; les connect
 les doctor</code></pre>
       <p class="tags"><span>Node.js</span><span>CLI</span><span>Markdown</span><span>MIT</span></p>
-      <p class="links"><a href="/les/"><strong>Visit site</strong></a> <a href="https://www.npmjs.com/package/@hakienit/les">npm package</a></p>
+      <p class="links"><a href="https://www.npmjs.com/package/@hakienit/les">npm package</a></p>
     </article>
 
     <article class="card project">
-      <h3><a href="/pet-tracker/site/">Wisp</a></h3>
+      <div class="project-head">
+        <h3><a href="/pet-tracker/site/">Wisp</a></h3>
+        <a class="btn" href="/pet-tracker/site/">Visit site →</a>
+      </div>
       <p class="muted">A floating desktop panel for local AI coding sessions.</p>
       <img src="img/wisp-demo.png" width="2000" height="1176" loading="lazy" alt="Wisp states: idle, running, needs you, done.">
       <ul>
@@ -95,7 +114,6 @@ les doctor</code></pre>
       </ul>
       <p class="tags"><span>Python</span><span>PowerShell</span><span>Shell</span></p>
       <p class="links">
-        <a href="/pet-tracker/site/"><strong>Visit site</strong></a>
         <a href="https://github.com/hakienit/pet-tracker">Repository</a>
         <a href="https://github.com/hakienit/pet-tracker/releases/latest">Download</a>
       </p>

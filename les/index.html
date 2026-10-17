@@ -19,6 +19,8 @@
     a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
     .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    nav .back { color: var(--muted); text-decoration: none; margin-right: 16px; font-size: .9rem; }
+    nav .back:hover { color: var(--text); }
     nav .brand { font-weight: 800; letter-spacing: .04em; color: var(--text); text-decoration: none; }
     nav .links a { margin-left: 20px; color: var(--muted); text-decoration: none; }
     nav .links a:hover { color: var(--text); }
@@ -71,7 +73,7 @@
 <header class="hero">
   <div class="wrap">
     <nav aria-label="Main">
-      <a class="brand" href="./">LES</a>
+      <span><a class="back" href="/">← Ha Ngoc Kien</a> <a class="brand" href="./">LES</a></span>
       <span class="links">
         <a href="#how">How it works</a>
         <a href="#start">Quick start</a>
@@ -115,7 +117,7 @@
   <section aria-labelledby="how" class="flow">
     <h2 id="how">How it works</h2>
     <p class="sub">A request reaches one bootstrap, then exactly one skill. Defects loop back until verification passes.</p>
-    <img src="flow.svg" width="1280" height="520" alt="A request passes through the provider pointer, LES-AGENT.md, the bootstrap, and one skill. R2 and R3 work waits at an approval gate. The work is done and verified, looping back to fix defects, and ends in a terminal status that returns to the human.">
+    <img src="flow.svg" width="1280" height="520" alt="A request passes through the provider pointer, LES-AGENT.md, the bootstrap, and one skill. R3 work waits at an approval gate. The work is done and verified, looping back to fix defects, and ends in a terminal status that returns to the human.">
   </section>
 
   <section aria-labelledby="safety">
