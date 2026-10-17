@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kien Ha · Ike Ha — Frontend / full-stack JavaScript engineer</title>
+  <meta name="description" content="Frontend / full-stack JavaScript engineer in Da Nang, Vietnam. React, Next.js, Electron, Node.js. Creator of LES and Wisp.">
+  <meta property="og:title" content="Kien Ha · Ike Ha">
+  <meta property="og:description" content="Frontend / full-stack JavaScript engineer. React, Next.js, Electron, Node.js.">
+  <meta property="og:url" content="https://hakienit.github.io/">
+  <meta property="og:type" content="website">
+  <style>
+    :root { --bg: #020617; --card: #0e1627; --line: #1e2a40; --text: #f8fafc; --muted: #94a3b8; --accent: #f4bf4f; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 880px; margin: 0 auto; padding: 48px 20px 64px; }
+    a { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    h1 { font-size: 2.2rem; margin: 0 0 4px; }
+    h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 48px 0 16px; }
+    h3 { margin: 0 0 4px; font-size: 1.3rem; }
+    p { margin: 0 0 12px; }
+    .muted { color: var(--muted); }
+    .links a { margin-right: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+    .grid .card { padding: 16px; }
+    .grid strong { display: block; margin-bottom: 4px; }
+    .project { margin-bottom: 16px; }
+    .project ul { padding-left: 20px; margin: 12px 0; }
+    .project img { width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+    pre { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 12px; overflow-x: auto; margin: 12px 0; }
+    code { font: .9em ui-monospace, Consolas, monospace; }
+    .tags span { display: inline-block; font: .8em ui-monospace, Consolas, monospace; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; margin: 0 6px 6px 0; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; }
+    footer { margin-top: 64px; font-size: .85rem; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Kien Ha · Ike Ha</h1>
+    <p><strong>Frontend / full-stack JavaScript engineer</strong> · Da Nang, Vietnam</p>
+    <p class="muted">React · Next.js · Electron · Node.js. I build product UIs, desktop apps, and developer tools that make AI-assisted development predictable.</p>
+    <p class="links">
+      <a href="https://www.linkedin.com/in/ikeha/">LinkedIn</a>
+      <a href="https://github.com/hakienit">GitHub</a>
+      <a href="https://www.npmjs.com/~hakienit">npm</a>
+    </p>
+  </header>
+
+  <section aria-labelledby="what">
+    <h2 id="what">What I do</h2>
+    <div class="grid">
+      <div class="card"><strong>Frontend</strong><span class="muted">Production React / Next.js interfaces, design systems, accessibility, performance.</span></div>
+      <div class="card"><strong>Desktop</strong><span class="muted">Electron and Python desktop apps with installers, auto-update, and release pipelines.</span></div>
+      <div class="card"><strong>Developer tooling</strong><span class="muted">Node.js CLIs, cross-platform install scripts, npm publishing.</span></div>
+      <div class="card"><strong>AI-assisted delivery</strong><span class="muted">Rules, approval gates, and verification workflows for AI coding CLIs.</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="projects">
+    <h2 id="projects">Featured projects</h2>
+
+    <article class="card project">
+      <h3>LES — Living Engineering System</h3>
+      <p class="muted">A methodology plus CLI that gives every AI coding tool in a repository the same rules.</p>
+      <ul>
+        <li>Risk levels <code>R0</code>–<code>R3</code>; push, history rewrite and destructive cleanup need human approval.</li>
+        <li>Every task ends in a status backed by checks that actually ran.</li>
+        <li>17-phase lifecycle, 14 rules, 10 workflows, optional domain profiles.</li>
+        <li>Adds one <code>LES-AGENT.md</code> and small pointer files to a repository. Nothing else.</li>
+      </ul>
+<pre><code>npx -y @hakienit/les
+cd my-project &amp;&amp; les connect
+les doctor</code></pre>
+      <p class="tags"><span>Node.js</span><span>CLI</span><span>Markdown</span><span>MIT</span></p>
+      <p><a href="https://www.npmjs.com/package/@hakienit/les">npm package</a></p>
+    </article>
+
+    <article class="card project">
+      <h3>Wisp</h3>
+      <p class="muted">A floating desktop panel for local AI coding sessions.</p>
+      <img src="img/wisp-demo.png" width="2000" height="1176" loading="lazy" alt="Wisp states: idle, running, needs you, done.">
+      <ul>
+        <li>Lists every running session; click to jump back to its window.</li>
+        <li>Shows quota usage with a forecast.</li>
+        <li>Nudges you when a session is waiting for input.</li>
+        <li>One-line installer verifies the release SHA256; Windows 10/11, macOS beta.</li>
+        <li>Reads local data only; hooks post to <code>127.0.0.1</code>.</li>
+      </ul>
+      <p class="tags"><span>Python</span><span>PowerShell</span><span>Shell</span></p>
+      <p class="links">
+        <a href="https://github.com/hakienit/pet-tracker">Repository</a>
+        <a href="https://github.com/hakienit/pet-tracker/releases/latest">Download</a>
+      </p>
+    </article>
+  </section>
+
+  <section aria-labelledby="exp">
+    <h2 id="exp">Experience</h2>
+    <table>
+      <thead><tr><th scope="col">Role</th><th scope="col">Organization</th><th scope="col">Period</th></tr></thead>
+      <tbody>
+        <tr><td>Frontend Developer</td><td>Vinova Pte. Ltd.</td><td>Mar 2022 – Present</td></tr>
+        <tr><td>Software Frontend Engineer</td><td>Freelance</td><td>May 2020 – Present</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills">Skills</h2>
+    <table>
+      <tbody>
+        <tr><th scope="row">Languages</th><td>JavaScript, TypeScript, Python, HTML, CSS</td></tr>
+        <tr><th scope="row">Frontend</th><td>React, Next.js</td></tr>
+        <tr><th scope="row">Desktop</th><td>Electron</td></tr>
+        <tr><th scope="row">Backend &amp; tooling</th><td>Node.js, CLI tooling, npm, PowerShell, Shell</td></tr>
+        <tr><th scope="row">Workflow</th><td>Git, GitHub Releases, AI coding CLIs, technical writing</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How I work</h2>
+    <ul>
+      <li>Evidence over claims: a change is done when its checks pass.</li>
+      <li>Small, reviewable diffs.</li>
+      <li>Humans approve risky operations; automation handles the rest.</li>
+      <li>Docs explain why, not only how.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Contact</h2>
+    <p>Open to frontend and full-stack roles and collaboration. Reach me on <a href="https://www.linkedin.com/in/ikeha/">LinkedIn</a>.</p>
+  </section>
+
+  <footer class="muted">Independent projects. Not affiliated with any AI provider.</footer>
+</main>
+</body>
+</html>
