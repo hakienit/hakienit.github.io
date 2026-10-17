@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LES — One engineering discipline for every AI coding CLI</title>
+  <meta name="description" content="LES (Living Engineering System) gives every AI coding CLI in a repository the same rules: risk levels, human approval gates, and evidence-backed task status. MIT, npm.">
+  <meta property="og:title" content="LES — Living Engineering System">
+  <meta property="og:description" content="One engineering discipline for every AI coding CLI. Classify the risk, prove the result, stop for a human where a human must decide.">
+  <meta property="og:url" content="https://hakienit.github.io/les/">
+  <meta property="og:type" content="website">
+  <style>
+    :root { --bg: #0b1220; --bg2: #0f3a3a; --card: #111c2e; --line: #1f2d44; --text: #f8fafc; --muted: #94a3b8; --teal: #2dd4bf; --sky: #38bdf8; --lime: #a3e635; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: var(--teal); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    nav .brand { font-weight: 800; letter-spacing: .04em; color: var(--text); text-decoration: none; }
+    nav .links a { margin-left: 20px; color: var(--muted); text-decoration: none; }
+    nav .links a:hover { color: var(--text); }
+    .hero { background: linear-gradient(135deg, var(--bg), var(--bg2)); border-bottom: 1px solid var(--line); }
+    .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; padding: 64px 0 80px; }
+    .stack { display: grid; gap: 14px; }
+    .stack span { display: block; width: 164px; height: 40px; border-radius: 12px; }
+    .stack span:nth-child(1) { background: var(--teal); }
+    .stack span:nth-child(2) { background: var(--sky); margin-left: 22px; }
+    .stack span:nth-child(3) { background: var(--lime); margin-left: 44px; }
+    .eyebrow { color: var(--teal); font-weight: 600; margin: 0 0 8px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 16px; }
+    .lede { color: #cbd5e1; font-size: 1.15rem; max-width: 620px; margin: 0 0 28px; }
+    .install { display: flex; align-items: center; gap: 12px; background: #020617; border: 1px solid var(--line); border-radius: 10px; padding: 12px 12px 12px 16px; max-width: 520px; }
+    .install code { flex: 1; color: var(--text); }
+    .install code::before { content: "$ "; color: var(--muted); }
+    button.copy { background: var(--teal); color: #042f2e; border: 0; border-radius: 6px; padding: 6px 12px; font: 600 .85rem system-ui, sans-serif; cursor: pointer; }
+    .cta { margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .cta img { vertical-align: middle; }
+    section { padding: 72px 0 0; }
+    h2 { font-size: 1.8rem; margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 28px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .card .bar { width: 32px; height: 6px; border-radius: 3px; margin-bottom: 14px; }
+    .flow img { width: 100%; height: auto; border-radius: 16px; }
+    ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    ol.steps li { counter-increment: s; }
+    ol.steps li::before { content: counter(s); display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: #042f2e; font-weight: 700; margin-bottom: 10px; }
+    pre { background: #020617; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0 0; }
+    code { font: .92em ui-monospace, Consolas, monospace; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; }
+    td:first-child { white-space: nowrap; }
+    .risk { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .status { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .status code { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+    .final { text-align: center; padding: 96px 0; }
+    .final .install { margin: 24px auto 0; text-align: left; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    @media (max-width: 720px) { .hero-inner { grid-template-columns: 1fr; } .stack { display: none; } nav .links a:not(:last-child) { display: none; } }
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="./">LES</a>
+      <span class="links">
+        <a href="#how">How it works</a>
+        <a href="#start">Quick start</a>
+        <a href="#commands">Commands</a>
+        <a href="https://www.npmjs.com/package/@hakienit/les">npm</a>
+      </span>
+    </nav>
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Living Engineering System</p>
+        <h1>One engineering discipline for every AI coding CLI.</h1>
+        <p class="lede">Classify the risk. Load only the context the task needs. Prove the result. Stop for a human wherever a human must decide.</p>
+        <div class="install">
+          <code>npx -y @hakienit/les</code>
+          <button class="copy" type="button" data-copy="npx -y @hakienit/les">Copy</button>
+        </div>
+        <p class="cta">
+          <a href="#start">Get started</a>
+          <a href="https://www.npmjs.com/package/@hakienit/les"><img src="https://img.shields.io/npm/v/@hakienit/les?color=2dd4bf&amp;label=npm" alt="npm version" height="20"></a>
+          <img src="https://img.shields.io/npm/dm/@hakienit/les?color=38bdf8" alt="npm downloads per month" height="20">
+          <img src="https://img.shields.io/badge/license-MIT-a3e635" alt="MIT license" height="20">
+        </p>
+      </div>
+      <div class="stack" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section aria-labelledby="why">
+    <h2 id="why">Why LES</h2>
+    <p class="sub">Switching AI tools should not change how work gets done.</p>
+    <div class="grid">
+      <div class="card"><div class="bar" style="background:var(--teal)"></div><h3>Every CLI, same rules</h3><p>Codex, Claude Code, Gemini CLI, and Antigravity read one bootstrap.</p></div>
+      <div class="card"><div class="bar" style="background:var(--sky)"></div><h3>Evidence, not claims</h3><p>Every task ends in a terminal status backed by the checks that actually ran.</p></div>
+      <div class="card"><div class="bar" style="background:var(--lime)"></div><h3>Humans keep authority</h3><p>Risk levels <code>R0</code>–<code>R3</code> decide what needs approval. A handoff never grants authority.</p></div>
+      <div class="card"><div class="bar" style="background:var(--teal)"></div><h3>No footprint</h3><p>A repository gets <code>LES-AGENT.md</code> plus one pointer file per CLI. The source stays in <code>~/.les-agents</code>.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how" class="flow">
+    <h2 id="how">How it works</h2>
+    <p class="sub">A request reaches one bootstrap, then exactly one skill. Defects loop back until verification passes.</p>
+    <img src="flow.svg" width="1280" height="520" alt="A request passes through the provider pointer, LES-AGENT.md, the bootstrap, and one skill. R2 and R3 work waits at an approval gate. The work is done and verified, looping back to fix defects, and ends in a terminal status that returns to the human.">
+  </section>
+
+  <section aria-labelledby="safety">
+    <h2 id="safety">Risk and status</h2>
+    <p class="sub">Each level sets what must happen before acting. Completion needs proof.</p>
+    <div class="risk">
+      <div class="card"><h3><code>R0</code></h3><p>Read-only inspection. Proceed.</p></div>
+      <div class="card"><h3><code>R1</code></h3><p>Reversible local edit. Proceed within stated scope.</p></div>
+      <div class="card"><h3><code>R2</code></h3><p>Broad or compatibility-sensitive edit. Plan, targeted proof, rollback path.</p></div>
+      <div class="card"><h3><code>R3</code></h3><p>External mutation, release, credentials, destructive action. Explicit human approval right before acting.</p></div>
+    </div>
+    <div class="status" aria-label="Terminal statuses">
+      <code>COMPLETE</code><code>BLOCKED</code><code>PENDING_USER_ACTION</code><code>FAILED</code><code>SKIPPED</code>
+    </div>
+  </section>
+
+  <section aria-labelledby="start">
+    <h2 id="start">Quick start</h2>
+    <p class="sub">macOS, Linux, and Windows. Node.js 20+.</p>
+    <ol class="steps">
+      <li class="card"><h3>Install once per machine</h3><p>Run outside a checkout of the LES repository, then open a new terminal.</p><pre><code>npx -y @hakienit/les</code></pre></li>
+      <li class="card"><h3>Connect a repository</h3><p>LES detects your AI CLIs and preselects them all.</p><pre><code>cd my-project
+les connect</code></pre></li>
+      <li class="card"><h3>Work as usual</h3><p>Your AI CLI loads LES before it starts. Check the setup any time.</p><pre><code>les doctor</code></pre></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="commands">
+    <h2 id="commands">Commands</h2>
+    <p class="sub">Add <code>--dry-run</code> to any repository command to preview it.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>les</code></td><td>Install or update <code>~/.les-agents</code>.</td></tr>
+          <tr><td><code>les connect [provider...] [--all]</code></td><td>Create <code>LES-AGENT.md</code> and the pointer files for detected CLIs.</td></tr>
+          <tr><td><code>les on</code>, <code>les off [provider]</code></td><td>Enable or disable routing.</td></tr>
+          <tr><td><code>les doctor</code></td><td>Check the install, the repository pointers, and for updates.</td></tr>
+          <tr><td><code>les guard on</code>, <code>les guard off</code></td><td>Claude Code hooks: block secret reads, deletes outside the project, and force pushes to protected branches; gate edits until the bootstrap is read. A guardrail, not a sandbox.</td></tr>
+          <tr><td><code>les lint FILE...</code></td><td>Flag placeholders and unmeasurable acceptance criteria in a spec.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub" style="margin-top:16px">LES never overwrites a pointer file you own and never writes to provider directories such as <code>~/.codex</code>, <code>~/.claude</code>, or <code>~/.gemini</code>.</p>
+  </section>
+
+  <section aria-labelledby="inside">
+    <h2 id="inside">What's inside</h2>
+    <p class="sub">Small, explicit layers.</p>
+    <div class="grid">
+      <div class="card"><h3>Policies</h3><p>Principles, precedence, a 17-phase lifecycle, 14 rules, and 10 workflows.</p></div>
+      <div class="card"><h3>Skills</h3><p>Operational entrypoints with triggers, steps, completion criteria, and guardrails.</p></div>
+      <div class="card"><h3>Profiles</h3><p>Optional domain rules. The frontend profile covers design, accessibility, performance, and browser proof.</p></div>
+      <div class="card"><h3>Adapters</h3><p>Thin host routing so each CLI reaches the same bootstrap.</p></div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final">
+    <h2 id="final">Update every repository at once</h2>
+    <p class="sub">Every repository points at the user store. LES never updates itself.</p>
+    <div class="install">
+      <code>npx -y @hakienit/les</code>
+      <button class="copy" type="button" data-copy="npx -y @hakienit/les">Copy</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>LES · MIT license · by <a href="https://hakienit.github.io/">Ha Ngoc Kien</a></span>
+    <span>Independent project. Not affiliated with any AI provider.</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('button.copy').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
+    catch { b.textContent = 'Select & copy'; }
+    setTimeout(() => { b.textContent = 'Copy'; }, 1500);
+  }));
+</script>
+</body>
+</html>

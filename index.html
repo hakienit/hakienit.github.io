@@ -19,6 +19,8 @@
     h1 { font-size: 2.2rem; margin: 0 0 4px; }
     h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 48px 0 16px; }
     h3 { margin: 0 0 4px; font-size: 1.3rem; }
+    h3 a { color: inherit; text-decoration: none; }
+    h3 a:hover { color: var(--accent); }
     p { margin: 0 0 12px; }
     .muted { color: var(--muted); }
     .links a { margin-right: 16px; }
@@ -65,7 +67,7 @@
     <h2 id="projects">Featured projects</h2>
 
     <article class="card project">
-      <h3>LES — Living Engineering System</h3>
+      <h3><a href="/les/">LES — Living Engineering System</a></h3>
       <p class="muted">A methodology plus CLI that gives every AI coding tool in a repository the same rules.</p>
       <ul>
         <li>Risk levels <code>R0</code>–<code>R3</code>; push, history rewrite and destructive cleanup need human approval.</li>
@@ -77,11 +79,11 @@
 cd my-project &amp;&amp; les connect
 les doctor</code></pre>
       <p class="tags"><span>Node.js</span><span>CLI</span><span>Markdown</span><span>MIT</span></p>
-      <p><a href="https://www.npmjs.com/package/@hakienit/les">npm package</a></p>
+      <p class="links"><a href="/les/"><strong>Visit site</strong></a> <a href="https://www.npmjs.com/package/@hakienit/les">npm package</a></p>
     </article>
 
     <article class="card project">
-      <h3>Wisp</h3>
+      <h3><a href="/pet-tracker/site/">Wisp</a></h3>
       <p class="muted">A floating desktop panel for local AI coding sessions.</p>
       <img src="img/wisp-demo.png" width="2000" height="1176" loading="lazy" alt="Wisp states: idle, running, needs you, done.">
       <ul>
@@ -93,6 +95,7 @@ les doctor</code></pre>
       </ul>
       <p class="tags"><span>Python</span><span>PowerShell</span><span>Shell</span></p>
       <p class="links">
+        <a href="/pet-tracker/site/"><strong>Visit site</strong></a>
         <a href="https://github.com/hakienit/pet-tracker">Repository</a>
         <a href="https://github.com/hakienit/pet-tracker/releases/latest">Download</a>
       </p>
