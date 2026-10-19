@@ -160,6 +160,7 @@ les connect</code></pre></li>
           <tr><td><code>les on</code>, <code>les off [provider]</code></td><td>Enable or disable routing.</td></tr>
           <tr><td><code>les doctor</code></td><td>Check the install, the repository pointers, and for updates.</td></tr>
           <tr><td><code>les guard on</code>, <code>les guard off</code></td><td>Claude Code hooks: block secret reads, deletes outside the project, and force pushes to protected branches; gate edits until the bootstrap is read. A guardrail, not a sandbox.</td></tr>
+          <tr><td><code>les guard on codex</code>, <code>les guard on gemini</code></td><td>The same risky-call blocks for Codex and Gemini CLI, without the bootstrap read gate. Use <code>les guard off codex</code> or <code>gemini</code> to remove them.</td></tr>
           <tr><td><code>les lint FILE...</code></td><td>Flag placeholders and unmeasurable acceptance criteria in a spec.</td></tr>
         </tbody>
       </table>
