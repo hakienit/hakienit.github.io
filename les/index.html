@@ -90,8 +90,8 @@
         <h1>One engineering discipline for every AI coding CLI.</h1>
         <p class="lede">Classify the risk. Load only the context the task needs. Prove the result. Stop for a human wherever a human must decide.</p>
         <div class="install">
-          <code>npx -y @hakienit/les</code>
-          <button class="copy" type="button" data-copy="npx -y @hakienit/les">Copy</button>
+          <code>npx -y @hakienit/les@latest</code>
+          <button class="copy" type="button" data-copy="npx -y @hakienit/les@latest">Copy</button>
         </div>
         <p class="cta">
           <a href="#start">Get started</a>
@@ -113,6 +113,7 @@
       <div class="card"><div class="bar" style="background:var(--teal)"></div><h3>Every CLI, same rules</h3><p>Codex, Claude Code, Gemini CLI, and Antigravity read one bootstrap.</p></div>
       <div class="card"><div class="bar" style="background:var(--sky)"></div><h3>Evidence, not claims</h3><p>Every task ends in a terminal status backed by the checks that actually ran.</p></div>
       <div class="card"><div class="bar" style="background:var(--lime)"></div><h3>Humans keep authority</h3><p>Risk levels <code>R0</code>–<code>R3</code> decide what needs approval. A handoff never grants authority.</p></div>
+      <div class="card"><div class="bar" style="background:var(--sky)"></div><h3>A team, priced by risk</h3><p>Small work stays with one agent. Larger work goes to departments with their own skills and model tier, and a writer never reviews its own change.</p></div>
       <div class="card"><div class="bar" style="background:var(--teal)"></div><h3>No footprint</h3><p>A repository gets <code>LES-AGENT.md</code> plus one pointer file per CLI. The source stays in <code>~/.les-agents</code>.</p></div>
     </div>
   </section>
@@ -141,8 +142,8 @@
     <h2 id="start">Quick start</h2>
     <p class="sub">macOS, Linux, and Windows. Node.js 20+.</p>
     <ol class="steps">
-      <li class="card"><h3>Install once per machine</h3><p>Run outside a checkout of the LES repository, then open a new terminal.</p><pre><code>npx -y @hakienit/les</code></pre></li>
-      <li class="card"><h3>Connect a repository</h3><p>LES detects your AI CLIs and preselects them all.</p><pre><code>cd my-project
+      <li class="card"><h3>Install once per machine</h3><p>Run outside a checkout of the LES repository, then open a new terminal.</p><pre><code>npx -y @hakienit/les@latest</code></pre></li>
+      <li class="card"><h3>Connect a repository</h3><p>LES connects every supported CLI and turns on the guard and the team.</p><pre><code>cd my-project
 les connect</code></pre></li>
       <li class="card"><h3>Work as usual</h3><p>Your AI CLI loads LES before it starts. Check the setup any time.</p><pre><code>les doctor</code></pre></li>
     </ol>
@@ -155,12 +156,15 @@ les connect</code></pre></li>
       <table>
         <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
         <tbody>
-          <tr><td><code>les</code></td><td>Install or update <code>~/.les-agents</code>.</td></tr>
-          <tr><td><code>les connect [provider...] [--all]</code></td><td>Create <code>LES-AGENT.md</code> and the pointer files for detected CLIs.</td></tr>
-          <tr><td><code>les on</code>, <code>les off [provider]</code></td><td>Enable or disable routing.</td></tr>
-          <tr><td><code>les doctor</code></td><td>Check the install, the repository pointers, and for updates.</td></tr>
+          <tr><td><code>les update</code></td><td>Fetch <code>@hakienit/les@latest</code> from npm and install it into <code>~/.les-agents</code>.</td></tr>
+          <tr><td><code>les</code></td><td>Install <code>~/.les-agents</code> from the running package.</td></tr>
+          <tr><td><code>les init</code></td><td>Create <code>LES-AGENT.md</code> only.</td></tr>
+          <tr><td><code>les connect</code></td><td>Set up the repository: create <code>LES-AGENT.md</code> and a pointer file for every CLI (Codex, Claude Code, Gemini CLI, Antigravity), and turn the guard and the team on. Safe to rerun.</td></tr>
           <tr><td><code>les guard on</code>, <code>les guard off</code></td><td>Claude Code hooks: block secret reads, deletes outside the project, and force pushes to protected branches; gate edits until the bootstrap is read. A guardrail, not a sandbox.</td></tr>
           <tr><td><code>les guard on codex</code>, <code>les guard on gemini</code></td><td>The same risky-call blocks for Codex and Gemini CLI, without the bootstrap read gate. Use <code>les guard off codex</code> or <code>gemini</code> to remove them.</td></tr>
+          <tr><td><code>les team on</code>, <code>les team off</code></td><td>Add or remove one Claude Code subagent per department (Product, Architecture, Engineering, Frontend, QA, Security, Review, DevOps, Scout).</td></tr>
+          <tr><td><code>les doctor</code>, <code>les status</code></td><td>Check the install, the repository pointers, the guard, and for updates.</td></tr>
+          <tr><td><code>les version</code></td><td>Print the LES version.</td></tr>
           <tr><td><code>les lint FILE...</code></td><td>Flag placeholders and unmeasurable acceptance criteria in a spec.</td></tr>
         </tbody>
       </table>
@@ -183,8 +187,8 @@ les connect</code></pre></li>
     <h2 id="final">Update every repository at once</h2>
     <p class="sub">Every repository points at the user store. LES never updates itself.</p>
     <div class="install">
-      <code>npx -y @hakienit/les</code>
-      <button class="copy" type="button" data-copy="npx -y @hakienit/les">Copy</button>
+      <code>les update</code>
+      <button class="copy" type="button" data-copy="les update">Copy</button>
     </div>
   </section>
 </main>
